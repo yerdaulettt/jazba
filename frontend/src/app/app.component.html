@@ -1,0 +1,12 @@
+<nav>
+  <div class="links">
+    <a routerLink="/">Home</a>
+    <a routerLink="/posts">All posts</a>
+    <a [routerLink]="['/posts/', 1]">Post details</a>
+    <a [routerLink]="['/', 'superman']">User details</a>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet />
+</div>

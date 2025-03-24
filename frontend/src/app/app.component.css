@@ -1,0 +1,34 @@
+nav {
+    column-gap: 17px;
+    background-color: rgb(241, 239, 230);
+    margin: 0;
+    padding: 12px 0px;
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #0086dd;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    background-color: rgb(240, 245, 238);
+    width: 90%;
+    margin: auto;
+    margin-top: 15px;
+    padding: 3px 20px;
+    border-radius: 10px;
+}
