@@ -1,0 +1,61 @@
+.comment-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.comment-header p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.info {
+    text-align: right;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    background-color: gray;
+    height: 1px;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.comment-container {
+    background-color: rgb(221, 233, 245);
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(200, 200, 200);
+    width: 30%;
+}
+
+.comment-body {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.comments {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(160, 86, 86);
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
