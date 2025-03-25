@@ -59,3 +59,18 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.load {
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: greenyellow;
+    padding: 5px 2px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.load-btn {
+    width: 70%;
+    margin: auto;
+}

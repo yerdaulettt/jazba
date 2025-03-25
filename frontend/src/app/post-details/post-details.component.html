@@ -2,21 +2,27 @@
 <p class="info">Published in {{ post.published_date }} by <a [routerLink]="['/', post.user]">{{ post.user }}</a></p>
 <p>{{ post.body }}</p>
 
-<div class="comments">
-    <div class="comment-header">
-        <hr>
-        <p>Comments</p>
-        <hr>
-    </div>
-    <div class="comment-body">
-        @for (comment of comments; track comment.id) {
-            <div class="comment-container">
-                <div class="user">
-                    <p><a [routerLink]="['/', comment.user]">{{ comment.user }}</a></p>
-                    <p>{{ comment.published_date }}</p>
-                </div>
-                <p>{{ comment.body }}</p>
-            </div>
-        }
-    </div>
+<div class="load-btn">
+    <button class="load" (click)="load()">Load comments</button>
 </div>
+
+@if (is_loaded) {
+    <div class="comments">
+        <div class="comment-header">
+            <hr>
+            <p>Comments</p>
+            <hr>
+        </div>
+        <div class="comment-body">
+            @for (comment of comments; track comment.id) {
+                <div class="comment-container">
+                    <div class="user">
+                        <p><a [routerLink]="['/', comment.user]">{{ comment.user }}</a></p>
+                        <p>{{ comment.published_date }}</p>
+                    </div>
+                    <p>{{ comment.body }}</p>
+                </div>
+            }
+        </div>
+    </div>
+}

@@ -12,5 +12,11 @@ import { RouterLink } from '@angular/router';
 
 export class PostDetailsComponent {
   post: Post = POSTS[1];
-  comments: Comment[] = COMMENTS;
+  comments!: Comment[];
+  is_loaded: boolean = false;
+
+  load() {
+    this.comments = COMMENTS;
+    this.is_loaded = true;
+  }
 }
