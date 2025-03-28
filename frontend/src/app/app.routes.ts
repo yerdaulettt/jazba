@@ -4,11 +4,13 @@ import { PostsComponent } from './posts/posts.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent, title: 'Home'},
     {path: 'posts', component: PostsComponent, title: 'All posts'},
     {path: 'posts/:id', component: PostDetailsComponent, title: 'Post details'},
+    {path: 'login', component: LoginComponent, title: 'Login'},
     {path: ':username', component: UserDetailsComponent, title: 'User details'},
     {path: '**', component: PageNotFoundComponent, title: 'Page not found'},
 ];
