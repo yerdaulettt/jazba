@@ -78,8 +78,30 @@ export const COMMENTS: Comment[] = [
     },
 ]
 
-export const USER: User = {
-    'username': 'superman',
-    'name': 'Superman',
-    'bio': 'Hero who can fly!'
-}
+// export const USER: User = {
+//     'username': 'superman',
+//     'name': 'Superman',
+//     'bio': 'Hero who can fly!'
+// }
+export const USERS: User[] = [
+    {
+      username: 'superman',
+      name: 'Superman',
+      bio: 'Hero who can fly!'
+    },
+    {
+      username: 'batman',
+      name: 'Batman',
+      bio: 'Dark Knight from Gotham'
+    },
+    {
+      username: 'ironman',
+      name: 'Iron Man',
+      bio: 'Genius billionaire'
+    },
+    {
+      username: 'spiderman',
+      name: 'Spiderman',
+      bio: 'Friendly neighborhood hero'
+    }
+  ];
