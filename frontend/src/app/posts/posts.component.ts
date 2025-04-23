@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from '../models';
-import { POSTS } from '../fake-db';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-posts',
@@ -9,6 +9,14 @@ import { POSTS } from '../fake-db';
   styleUrl: './posts.component.css'
 })
 
-export class PostsComponent {
-  posts: Post[] = POSTS;
+export class PostsComponent implements OnInit {
+  posts!: Post[];
+
+  constructor(private postsService: PostsService) {}
+
+  ngOnInit(): void {
+    this.postsService.getPosts().subscribe((posts: Post[]) => {
+      this.posts = posts;
+    })
+  }
 }

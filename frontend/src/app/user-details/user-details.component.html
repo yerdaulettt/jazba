@@ -1,16 +1,22 @@
-<div *ngIf="user">
+<!-- <div *ngIf="user">
     <h2>{{ user.name }} ({{ user.username }})</h2>
     <p>{{ user.bio }}</p>
   
     <h3>Posts by {{ user.username }}</h3>
     <ul>
-      <li *ngFor="let post of posts">
-        <strong>{{ post.title }}</strong>: {{ post.body }}
-      </li>
+      @for (post of posts; track post.id) {
+        <li>{{ post.title }}</li>
+      }
     </ul>
   </div>
   
   <div *ngIf="!user">
     <p>User not found.</p>
   </div>
-  
+   -->
+
+<ul>
+    @for (post of posts; track post.id) {
+      <li>{{ post.title }}</li>
+    }
+  </ul>

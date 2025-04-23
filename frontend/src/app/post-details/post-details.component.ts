@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post, Comment } from '../models';
-import { POSTS, COMMENTS } from '../fake-db';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-details',
@@ -10,13 +10,29 @@ import { RouterLink } from '@angular/router';
   styleUrl: './post-details.component.css'
 })
 
-export class PostDetailsComponent {
-  post: Post = POSTS[1];
+export class PostDetailsComponent implements OnInit {
+  post!: Post;
   comments!: Comment[];
   is_loaded: boolean = false;
+  post_id!: number;
+
+  constructor(private routes: ActivatedRoute, private postsService: PostsService) {}
 
   load() {
-    this.comments = COMMENTS;
+    this.postsService.getPostComments(this.post_id).subscribe((comments: Comment[]) => {
+      this.comments = comments;
+    })
     this.is_loaded = true;
+  }
+
+  ngOnInit(): void {
+    this.routes.paramMap.subscribe((params) => {
+      const postID = Number(params.get('id'));
+      this.post_id = postID;
+
+      this.postsService.getPost(postID).subscribe((post: Post) => {
+        this.post = post;
+      })
+    })
   }
 }

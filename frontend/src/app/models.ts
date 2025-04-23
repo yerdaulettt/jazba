@@ -25,3 +25,8 @@ export interface Comment {
     body: string;
     published_date: string;
 }
+
+export interface Token {
+    refresh: string;
+    access: string;
+}

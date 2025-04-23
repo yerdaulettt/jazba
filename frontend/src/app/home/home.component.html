@@ -1,1 +1,13 @@
 <p>Welcome to JazBa!</p>
+
+<span>Sign up</span>
+
+
+<fieldset>
+    <input type="text" placeholder="username" [(ngModel)]="username">
+</fieldset>
+<fieldset>
+    <input type="password" placeholder="Password" [(ngModel)]="password">
+</fieldset>
+
+<button (click)="signup()">Sign up</button>

@@ -1,22 +1,20 @@
-<div class="home">
-    <h1>Welcome to Jazba!</h1>
-    
-    <p>Some info about web app...</p>
-
-    <div class="GeneralForFirstPage">
-        <header class="JazBa">
-            <nav>JazBa</nav>
-        </header>
-
+<!-- <div class="home">
         <div class="General">
-            <form class="form">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-            </form>
+            <fieldset>
+                <input type="text" placeholder="username" [(ngModel)]="username">
+                <input type="password" placeholder="Password" [(ngModel)]="password">
+            </fieldset>
             <div class="ForRegister">
-                <a href="#">Зарегистрироваться</a>
+                <button (click)="login()">Log in</button>
             </div>
         </div>
-    </div>
-</div>
+</div> -->
+
+<fieldset>
+    <input type="text" placeholder="username" [(ngModel)]="username">
+</fieldset>
+<fieldset>
+    <input type="password" placeholder="Password" [(ngModel)]="password">
+</fieldset>
+
+<button (click)="login()">Log in</button>

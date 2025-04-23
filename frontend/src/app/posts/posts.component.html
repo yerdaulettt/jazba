@@ -1,1 +1,7 @@
-<p>posts works!</p>
+@if (!posts) {
+    <p>Sign in to view</p>
+} @else {
+    @for (post of posts; track post.id) {
+        <p>{{ post.title }}</p>
+    }
+}

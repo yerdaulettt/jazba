@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User, Post } from '../models';
-import { USERS, POSTS } from '../fake-db';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-user-details',
@@ -13,15 +13,17 @@ import { USERS, POSTS } from '../fake-db';
 })
 export class UserDetailsComponent {
   user: User | undefined;
-  posts: Post[] = [];
+  posts!: Post[];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private postsService: PostsService) {}
 
   ngOnInit(): void {
-    const username = this.route.snapshot.paramMap.get('username');
-    if (username) {
-      this.user = USERS.find(u => u.username === username);
-      this.posts = POSTS.filter(p => p.user === username);
-    }
+    this.route.paramMap.subscribe((params) => {
+      const user: string = String(params.get('username'));
+
+      this.postsService.getUserPosts(user).subscribe((posts: Post[]) => {
+        this.posts = posts;
+      })
+    })
   }
 }
