@@ -1,7 +1,3 @@
-@if (!posts) {
-    <p>Sign in to view</p>
-} @else {
-    @for (post of posts; track post.id) {
-        <p>{{ post.title }}</p>
-    }
+@for (post of posts; track post.id) {
+    <p><a [routerLink]="[post.id]">{{ post.title }}</a> by <a [routerLink]="['', post.username]">{{ post.username }}</a></p>
 }

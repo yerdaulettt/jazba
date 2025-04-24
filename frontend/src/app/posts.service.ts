@@ -27,7 +27,15 @@ export class PostsService {
     return this.http.get<Post[]>(`http://127.0.0.1:8000/api/${username}/posts/`)
   }
 
-  addPost(post: { title: string; content: string; postId: number }) {
-    return this.http.post('/api/posts', post); // Сервер API-іне сұраныс жіберу
+  addPost(post: { username: string, title: string; body: string, published_date: string, tag: number}): Observable<Post> {
+    return this.http.post<Post>(this.BASE_URL, post)
+  }
+
+  whoiam(): Observable<any> {
+    return this.http.get<any>('http://127.0.0.1:8000/api/whoiam/')
+  }
+
+  addComment(id: number, comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(`${this.BASE_URL}${id}/comments/`, comment)
   }
 }

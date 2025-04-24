@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User, Post } from '../models';
 import { PostsService } from '../posts.service';
@@ -7,12 +7,12 @@ import { PostsService } from '../posts.service';
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent {
-  user: User | undefined;
+  username!: string;
   posts!: Post[];
 
   constructor(private route: ActivatedRoute, private postsService: PostsService) {}
@@ -20,6 +20,7 @@ export class UserDetailsComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const user: string = String(params.get('username'));
+      this.username = user
 
       this.postsService.getUserPosts(user).subscribe((posts: Post[]) => {
         this.posts = posts;

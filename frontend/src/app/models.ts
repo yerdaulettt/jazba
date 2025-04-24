@@ -1,16 +1,15 @@
 export interface User {
     username: string;
-    name: string;
     bio: string;
 }
 
 export interface Post {
     id: number;
-    user: string;
-    tag_id: number;
+    username: string;
     title: string;
     body: string;
     published_date: string;
+    tag: number;
 }
 
 export interface Tag {
@@ -19,9 +18,8 @@ export interface Tag {
 }
 
 export interface Comment {
-    id: number;
-    post_id: number;
-    user: string;
+    post: number;
+    username: string;
     body: string;
     published_date: string;
 }

@@ -7,10 +7,12 @@ urlpatterns = [
     path('signup/', user.signup),
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
+    path('whoiam/', user.whoiam),
 
     path('posts/', post.PostList.as_view()),
     path('posts/<int:id>/', post.post_detail),
 
+    path('<username>/', user.get_user),
     path('<username>/posts/', user.user_posts),
     path('posts/<int:id>/comments/', comment.post_comments),
 

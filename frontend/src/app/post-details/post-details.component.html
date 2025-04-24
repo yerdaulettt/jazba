@@ -1,9 +1,41 @@
-<div *ngIf="commentsLoaded">
-    <h3>Пікірлер:</h3>
-    <ul>
-      <li *ngFor="let comment of comments">
-        <strong>{{ comment.user }}</strong>: {{ comment.text }}
-      </li>
-    </ul>
-  </div>
-  
+<h1>{{ post.title }}</h1>
+<p class="info">Published in {{ post.published_date }} by <a [routerLink]="['/', post.username]">{{ post.username }}</a></p>
+<p>{{ post.body }}</p>
+
+<div class="load-btn">
+    <button class="load" (click)="load()">Load comments</button>
+</div>
+
+@if (is_loaded) {
+    @if (is_authenticated) {
+        <fieldset>
+            <!-- <input type="textarea" placeholder="content" [(ngModel)]="content"> -->
+            <textarea name="" id="" [(ngModel)]="body"></textarea>
+        </fieldset>
+    
+        <button (click)="comment()">Comment!</button>
+
+        @if (is_commented) {
+            <p>Refresh to see your comment!</p>
+        }
+    }
+
+    <div class="comments">
+        <div class="comment-header">
+            <hr>
+            <p>Comments</p>
+            <hr>
+        </div>
+        <div class="comment-body">
+            @for (comment of comments; track comment.body) {
+                <div class="comment-container">
+                    <div class="user">
+                        <p><a [routerLink]="['/', comment.username]">{{ comment.username }}</a></p>
+                        <p>{{ comment.published_date }}</p>
+                    </div>
+                    <p>{{ comment.body }}</p>
+                </div>
+            }
+        </div>
+    </div>
+}
