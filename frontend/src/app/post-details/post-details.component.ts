@@ -1,38 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Post, Comment } from '../models';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { PostsService } from '../posts.service';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-post-details',
-  imports: [RouterLink],
+  standalone: true,
   templateUrl: './post-details.component.html',
-  styleUrl: './post-details.component.css'
+  styleUrls: ['./post-details.component.css'],
+  imports: [CommonModule] // Міне, осыны қостың ба?
 })
+export class PostDetailsComponent {
+  @Input() post: any;
 
-export class PostDetailsComponent implements OnInit {
-  post!: Post;
-  comments!: Comment[];
-  is_loaded: boolean = false;
-  post_id!: number;
+  commentsLoaded: boolean = false;
+  comments: any[] = [];
 
-  constructor(private routes: ActivatedRoute, private postsService: PostsService) {}
-
-  load() {
-    this.postsService.getPostComments(this.post_id).subscribe((comments: Comment[]) => {
-      this.comments = comments;
-    })
-    this.is_loaded = true;
-  }
-
-  ngOnInit(): void {
-    this.routes.paramMap.subscribe((params) => {
-      const postID = Number(params.get('id'));
-      this.post_id = postID;
-
-      this.postsService.getPost(postID).subscribe((post: Post) => {
-        this.post = post;
-      })
-    })
+  load(): void {
+    if (!this.commentsLoaded) {
+      // Бұл жерге нақты API-ден алу логикасы қойылады, әзірге жалған дерек
+      this.comments = [
+        { user: 'user1', text: 'Тамаша пост!' },
+        { user: 'user2', text: 'Көп рақмет!' }
+      ];
+      this.commentsLoaded = true;
+    }
   }
 }
