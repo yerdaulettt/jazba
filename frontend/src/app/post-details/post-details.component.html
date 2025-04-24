@@ -1,37 +1,9 @@
-<h1>{{ post.title }}</h1>
-<p class="info">Published in {{ post.published_date }} by <a [routerLink]="['/', post.user]">{{ post.user }}</a></p>
-<p>{{ post.body }}</p>
-
-<div class="load-btn">
-    <button class="load" (click)="load()">Load comments</button>
-</div>
-
-<div class="add-post-section">
-    <button class="add-post-btn" (click)="toggleAddPostForm()">Пост қосу</button>
-    <form class="add-post-form" *ngIf="isAddingPost" (submit)="addPost($event)">
-        <input type="text" placeholder="Посттың тақырыбы" [(ngModel)]="newPostTitle" name="title" required />
-        <textarea placeholder="Посттың мазмұны" [(ngModel)]="newPostContent" name="content" rows="5" required></textarea>
-        <button type="submit">Жіберу</button>
-    </form>
-</div>
-
-@if (is_loaded) {
-    <div class="comments">
-        <div class="comment-header">
-            <hr>
-            <p>Comments</p>
-            <hr>
-        </div>
-        <div class="comment-body">
-            @for (comment of comments; track comment.id) {
-                <div class="comment-container">
-                    <div class="user">
-                        <p><a [routerLink]="['/', comment.user]">{{ comment.user }}</a></p>
-                        <p>{{ comment.published_date }}</p>
-                    </div>
-                    <p>{{ comment.body }}</p>
-                </div>
-            }
-        </div>
-    </div>
-}
+<div *ngIf="commentsLoaded">
+    <h3>Пікірлер:</h3>
+    <ul>
+      <li *ngFor="let comment of comments">
+        <strong>{{ comment.user }}</strong>: {{ comment.text }}
+      </li>
+    </ul>
+  </div>
+  

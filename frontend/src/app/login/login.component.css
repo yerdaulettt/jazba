@@ -1,64 +1,149 @@
-/* .home{
-    background-color: #e0e0e0;
-}
-body{
-    background:         rgb(52,41,101);
-    background:         linear-gradient(90deg, rgba(52,41,101,1) 5%, rgba(0,0,0,1) 55%, rgba(96,11,106,1) 100%);
-}
-
-
-.JazBa{
-    font-family:        "Boldonse";
-    text-align:         center;
-    font-size:          24px;
-    display:            flex;
-    justify-content:    center;
-    align-items:        center;
-
-    margin-right:       400px;
-    margin-top:         120px;
+/* Бүкіл бетке арналған фон */
+body {
+    background: linear-gradient(135deg, #452255 0%, #3498db 100%);
+    font-family: 'Arial', sans-serif; /* Немесе 'Segoe UI', Roboto, sans-serif сияқты заманауи шрифттер */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #3498db;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box; /* Padding пен border элементтің жалпы еніне/биіктігіне қосылады */
 }
 
-.General{
-
-    margin-left:        350px;
-    margin-top:         -150px;
-
-    padding:            100px;
-    padding-bottom:     120px;
-
+/* Жалпы элементтерге box-sizing қолдану */
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
-.form{
-    margin:             0 0 15px;
-    display:            grid;
-    gap:                20px;
+/* Логин контейнері */
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9); /* или другой фон */
+    z-index: 1000; /* чтобы перекрывать другие элементы */
 }
 
-.form input{
-    border:             1px solid #e0e0e0;
-    width:              250px;
-    height:             30px;
-    border-radius:      15px;
-    font-family:        inherit;
-    font-size:          15px;
-    padding:            0 24px;
+/* Контейнерге hover эффекті (міндетті емес) */
+/*
+.login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+*/
+
+/* Логин тақырыбы */
+.login-container h1 {
+    font-size: 28px; /* Сәл кішірейту */
+    color: #333;
+    margin-bottom: 20px; /* Көбірек бос орын */
+    font-weight: bold; /* Сәл жұмсақ қалыңдық */
+    letter-spacing: 0.5px; /* Әріптер арасын сәл ашу */
 }
 
+/* Форманың жалпы стилі */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Элементтер арасындағы бос орынды ұлғайту */
+}
 
+/* Инпут өрістері */
+.login-form label { /* Жазулар үшін (егер қоссаңыз) */
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px; /* Инпуттан алдын кішкене орын */
+    font-weight: 500;
+}
 
+.login-form input {
+    border: 1px solid #ddd; /* Сәл көрінетін шекара */
+    border-radius: 8px;
+    padding: 10px 15px; /* Биіктігін сәл арттыру */
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Көлеңкеге де transition қосу */
+    width: 100%; /* Контейнердің енін толтыру */
+}
 
-.GeneralForFirstPage{
-    background:         rgb(178,160,255);
-    background:         linear-gradient(90deg, rgba(178,160,255,1) 5%, rgba(89,141,255,1) 55%, rgba(241,116,255,1) 100%);
-    
-    border:             1px solid;
-    margin-top:         200px;
-    margin-left:        300px;
-    margin-right:       300px;
-    border-radius:      50px;
+.login-form input::placeholder { /* Placeholder мәтінін сәл бозарту */
+    color: #999;
+}
 
-    height:             350px;
-    background-color:   lightgreen;
-    
-} */
+.login-form input:focus {
+    border-color: #8e44ad;
+    box-shadow: 0 0 5px rgba(142, 68, 173, 0.5); /* Фокус кезінде көлеңкені жұмсарту */
+}
+
+/* Логин батырмасы */
+.login-form button {
+    background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px; /* Батырманы сәл үлкенірек ету */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease; /* Көлеңкеге transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Батырмаға кішкене көлеңке */
+}
+
+.login-form button:hover {
+    background: linear-gradient(135deg, #3498db 0%, #8e44ad 100%); /* Hover түсін сәл қоюлау */
+    transform: scale(1.05); /* Hover эффектін күшейту */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.login-form button:active { /* Басылған кездегі эффект */
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Қосымша сілтемелер */
+.extra-links {
+    margin-top: 25px; /* Жоғарыдан көбірек орын */
+}
+
+.extra-links a {
+    font-size: 14px;
+    color: #8e44ad;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    margin: 0 10px; /* Сілтемелер арасында бос орын (егер бірнеше болса) */
+}
+
+.extra-links a:hover {
+    color: #3498db;
+    text-decoration: underline; /* Hover кезінде астын сызу */
+}
+
+/* Мобильді бейімделу (қарапайым мысал) */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .login-container h1 {
+        font-size: 22px;
+    }
+
+    .login-form input {
+        font-size: 14px;
+    }
+
+    .login-form button {
+        font-size: 14px;
+    }
+}
