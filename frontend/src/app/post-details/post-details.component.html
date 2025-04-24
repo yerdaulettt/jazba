@@ -6,6 +6,15 @@
     <button class="load" (click)="load()">Load comments</button>
 </div>
 
+<div class="add-post-section">
+    <button class="add-post-btn" (click)="toggleAddPostForm()">Пост қосу</button>
+    <form class="add-post-form" *ngIf="isAddingPost" (submit)="addPost($event)">
+        <input type="text" placeholder="Посттың тақырыбы" [(ngModel)]="newPostTitle" name="title" required />
+        <textarea placeholder="Посттың мазмұны" [(ngModel)]="newPostContent" name="content" rows="5" required></textarea>
+        <button type="submit">Жіберу</button>
+    </form>
+</div>
+
 @if (is_loaded) {
     <div class="comments">
         <div class="comment-header">

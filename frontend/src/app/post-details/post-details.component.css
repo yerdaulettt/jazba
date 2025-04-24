@@ -3,74 +3,190 @@
     flex-direction: row;
     align-items: center;
     column-gap: 20px;
+    background-color: #ffe4e1; /* Ашық қызғылт фон */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Жеңіл көлеңке */
 }
 
 .comment-header p {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
+    color: #4b0082; /* Қою күлгін мәтін */
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 42px;
     text-align: center;
+    color: #8b0000; /* Қою қызыл */
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Жеңіл көлеңке */
 }
 
 .info {
     text-align: right;
+    color: #6a5acd; /* Күлгін */
+    font-style: italic;
 }
 
 hr {
     width: 100%;
     border: none;
-    background-color: gray;
-    height: 1px;
+    background-color: #dda0dd; /* Ашық күлгін */
+    height: 3px;
+    margin: 20px 0;
 }
 
 .user {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: #fafad2; /* Ашық сары фон */
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ffd700; /* Алтын шекара */
 }
 
 .comment-container {
-    background-color: rgb(221, 233, 245);
-    padding: 5px 15px;
-    border-radius: 5px;
-    border: 1px solid rgb(200, 200, 200);
-    width: 30%;
+    background-color: #f0fff0; /* Ашық жасыл фон */
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid #98fb98; /* Жұмсақ жасыл шекара */
+    width: 50%;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Қанық көлеңке */
 }
 
 .comment-body {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    color: #2e8b57; /* Қою жасыл мәтін */
 }
 
 .comments {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #556b2f; /* Зәйтүн жасыл */
 }
 
 a {
     text-decoration: none;
-    color: rgb(160, 86, 86);
+    color: #ff4500; /* Ашық қызыл */
     font-weight: bold;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #ff6347; /* Қызанақ түсі */
 }
 
 .load {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 100%;
-    background-color: greenyellow;
-    padding: 5px 2px;
-    border: 1px solid gray;
-    border-radius: 2px;
+    background-color: #ff69b4; /* Ашық қызғылт */
+    padding: 12px 8px;
+    border: 1px solid #ff1493; /* Қою қызғылт шекара */
+    border-radius: 8px;
     font-weight: bold;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Жеңіл көлеңке */
 }
 
 .load-btn {
-    width: 70%;
+    width: 75%;
     margin: auto;
+    background-color: #4682b4; /* Көкшіл */
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.load-btn:hover {
+    background-color: #5f9ea0; /* Ашық көкшіл */
+}
+
+/* Пост қосу батырмасы */
+.add-post-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    background-color: #4caf50; /* Жасыл түс */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-post-btn:hover {
+    background-color: #45a049; /* Қою жасыл */
+    transform: scale(1.05); /* Батырманы сәл үлкейту */
+}
+
+/* Пост қосу формасы */
+.add-post-form {
+    margin: 20px auto;
+    padding: 20px;
+    width: 60%;
+    background-color: #f9f9f9; /* Ашық сұр фон */
+    border: 1px solid #ddd; /* Жұмсақ сұр шекара */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Жеңіл көлеңке */
+}
+
+.add-post-form input,
+.add-post-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Жұмсақ сұр шекара */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-post-form input:focus,
+.add-post-form textarea:focus {
+    border-color: #4caf50; /* Жасыл шекара */
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Жасыл көлеңке */
+}
+
+.add-post-form button {
+    padding: 10px 15px;
+    background-color: #4caf50; /* Жасыл түс */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-post-form button:hover {
+    background-color: #45a049; /* Қою жасыл */
+}
+
+.add-post-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.add-post-section .add-post-btn {
+    margin-bottom: 10px;
+}
+
+.add-post-section .add-post-form {
+    display: none;
+    width: 100%;
 }

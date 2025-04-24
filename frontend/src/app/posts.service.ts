@@ -26,4 +26,8 @@ export class PostsService {
   getUserPosts(username: string): Observable<Post[]> {
     return this.http.get<Post[]>(`http://127.0.0.1:8000/api/${username}/posts/`)
   }
+
+  addPost(post: { title: string; content: string; postId: number }) {
+    return this.http.post('/api/posts', post); // Сервер API-іне сұраныс жіберу
+  }
 }
