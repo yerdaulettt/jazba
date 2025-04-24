@@ -12,9 +12,8 @@ class SiteUserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CommentSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
     post = serializers.PrimaryKeyRelatedField(queryset=models.Post.objects.all())
-    user = serializers.PrimaryKeyRelatedField(queryset=models.SiteUser.objects.all())
+    username = serializers.CharField(max_length=250)
     body = serializers.CharField()
     published_date = serializers.DateField()
 

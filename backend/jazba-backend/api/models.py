@@ -15,8 +15,9 @@ class SiteUser(models.Model):
         return f'{self.user.username}'
     
 class Post(models.Model):
-    user = models.ForeignKey(SiteUser, on_delete=models.CASCADE)
+    # user = models.ForeignKey(SiteUser, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    username = models.CharField(max_length=250, default='')
     title = models.CharField(max_length=500)
     body = models.TextField()
     published_date = models.DateField()
@@ -26,7 +27,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    user = models.ForeignKey(SiteUser, on_delete=models.CASCADE)
+    username = models.CharField(max_length=250, default='')
     body = models.TextField()
     published_date = models.DateField()
 

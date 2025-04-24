@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from django.shortcuts import get_list_or_404, get_object_or_404
 
 class TagList(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         tag = get_list_or_404(Tag)
@@ -27,7 +27,7 @@ class TagList(APIView):
     
 
 @api_view(['GET'])
-@permission_classes([permissions.IsAuthenticated])
+# @permission_classes([permissions.IsAuthenticated])
 def tag_posts(request, id):
     tag = get_object_or_404(Tag, id=id)
 

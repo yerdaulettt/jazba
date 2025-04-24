@@ -21,12 +21,12 @@ class PostList(APIView):
         serializer = PostSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes([permissions.IsAuthenticated])
+# @permission_classes([permissions.IsAuthenticated])
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
 

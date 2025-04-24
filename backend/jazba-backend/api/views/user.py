@@ -3,18 +3,18 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from api.serializers import PostSerializer
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
 from api.models import SiteUser
+from django.shortcuts import get_object_or_404
+from api.models import Post
 from django.contrib.auth.models import User
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated,])
+# @permission_classes([IsAuthenticated,])
 def user_posts(request, username):
     if request.method == 'GET':
         user = get_object_or_404(User, username=username)
 
-        posts = user.siteuser.post_set.all()
+        posts = Post.objects.raw(f'select * from api_post where username = \'{username}\'')
 
         serializer = PostSerializer(posts, many=True)
 
